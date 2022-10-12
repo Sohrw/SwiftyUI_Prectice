@@ -19,7 +19,7 @@ struct LandmarkDetail: View {
         ScrollView {
             MapView(coordinate: landmark.locationCoordinate)
                 .ignoresSafeArea(edges : .top)
-                .frame(height: 400)
+                .frame(height: 300)
             CircleImage(image: landmark.image)
                 .offset(y:-130)
                 .padding(.bottom, -130)
@@ -32,10 +32,8 @@ struct LandmarkDetail: View {
                 
                 HStack {
                     Text(landmark.park)
-                        .font(.subheadline)
                     Spacer()
                     Text(landmark.state)
-                        .font(.subheadline)
                 }
                 .font(.subheadline)
                 .foregroundColor(.secondary)
@@ -55,7 +53,10 @@ struct LandmarkDetail: View {
 }
 
 struct LandmarkDetail_Previews: PreviewProvider {
+    static let modelData = ModelData()
+    
     static var previews: some View {
-        LandmarkDetail(landmark: ModelData().landmarks[0])
+        LandmarkDetail(landmark: modelData.landmarks[0])
+            .environmentObject(modelData)
     }
 }
