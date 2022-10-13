@@ -10,9 +10,8 @@ import SwiftUI
 struct BadgeBackground: View {
     var body: some View {
         GeometryReader { geometry in
-            var _: CGFloat = min(geometry.size.width, geometry.size.height)
+            var width: CGFloat = min(geometry.size.width, geometry.size.height)
             Path { path in
-                var width : CGFloat = 100.0
                 let height = width
                 let xScale : CGFloat = 0.832
                 let xOffset = (width * (1.0 - xScale)) / 2.0
